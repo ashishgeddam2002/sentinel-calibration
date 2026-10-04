@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sentinel-calibration"
+version = "0.1.0"
+description = "Condition-stratified (Mondrian) conformal prediction for night-time home-status questions"
+requires-python = ">=3.9"
+dependencies = ["numpy", "scipy", "matplotlib"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
