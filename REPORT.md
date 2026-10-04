@@ -1,12 +1,12 @@
 # REPORT
 
-Status: in progress.
+Status: in progress (A, B, C done).
 
 ## Plan
-- [ ] Scaffold (pyproject, package, .gitignore), ASSUMPTIONS.md
-- [ ] A. conformal.py
-- [ ] B. simulate.py
-- [ ] C. experiments.py (figures/, results/)
+- [x] Scaffold (pyproject, package, .gitignore), ASSUMPTIONS.md
+- [x] A. conformal.py
+- [x] B. simulate.py
+- [x] C. experiments.py (figures/, results/)
 - [ ] D. features.py
 - [ ] E. dataset.py
 - [ ] F. evaluate.py + CLI
