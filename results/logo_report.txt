@@ -1,0 +1,4 @@
+leave-one-group-out on 'steady_dbfs', alpha=0.1, usable recordings=48
+  held-out          A: n= 24 acc=0.83 cov=0.83 size=1.00 abstain=0.00
+  held-out          B: n= 24 acc=0.88 cov=1.00 size=1.29 abstain=0.29
+  overall: acc=0.854 coverage=0.917 set size=1.146 abstain=0.146

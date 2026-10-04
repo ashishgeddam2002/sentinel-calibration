@@ -108,13 +108,13 @@ def make_figures(main_rows, shift_rows, ncal_rows, alpha, fig_dir, main_shift, m
         ax.bar(x, [v["coverage"] for v in vals], width, yerr=[v["coverage_sd"] for v in vals],
                capsize=3, color=colors[m], label=labels[m])
         for xi, v in zip(x, vals):
-            ax.text(xi, v["coverage"] + 0.012, f"{v['coverage']:.2f}", ha="center", fontsize=9)
+            ax.text(xi, v["coverage"] + v["coverage_sd"] + 0.008, f"{v['coverage']:.2f}", ha="center", fontsize=9)
     ax.axhline(1 - alpha, color="black", ls="--", lw=1, label=f"Target 1-alpha = {1 - alpha:.2f}")
     ax.set_xticks(range(2), CONDITIONS)
-    ax.set_ylim(0.5, 1.05)
+    ax.set_ylim(0.5, 1.2)
     ax.set_ylabel("Empirical coverage (mean over seeds, bar = 1 sd)")
     ax.set_title(f"Coverage by condition (shift={main_shift}, n_cal={main_ncal})")
-    ax.legend(loc="lower left", fontsize=8)
+    ax.legend(loc="upper center", fontsize=8, ncol=1)
     fig.tight_layout()
     paths.append(os.path.join(fig_dir, "fig1_coverage_by_condition.png"))
     fig.savefig(paths[-1], dpi=150)
