@@ -17,6 +17,7 @@ BUMP_DBFS = -10.0       # any peak above this counts as a bump
 BANDS: Tuple[Tuple[int, int], ...] = ((20, 100), (100, 300), (300, 1000), (1000, 3000), (3000, 8000))
 PULSE_RANGE_HZ = (8.0, 30.0)
 PULSE_RATIO_MIN = 6.0   # peak / median of the envelope spectrum needed to call it a pulse
+ENV_CLIP_X_MEDIAN = 3.0  # envelope values above 3x the median are clipped
 ENV_HOP_S = 0.005       # envelope sampled at 200 Hz
 
 
@@ -104,6 +105,7 @@ def find_pulse(x: np.ndarray, rate: int) -> Dict[str, float]:
     env, env_rate = amplitude_envelope(x[int(SKIP_S * rate):], rate)
     if len(env) < env_rate:  # < 1 s
         return none
+    env = np.minimum(env, ENV_CLIP_X_MEDIAN * np.median(env))  # one loud click must not swamp the spectrum
     env = env - env.mean()
     nfft = 1 << int(math.ceil(math.log2(len(env) * 4)))   # zero-pad for a finer frequency grid
     spec = np.abs(np.fft.rfft(env * np.hanning(len(env)), nfft))
