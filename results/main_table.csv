@@ -1,0 +1,5 @@
+method,condition,n_cal,shift,alpha,n_seeds,coverage,coverage_sd,set_size,abstain,abstain_sd,empty_rate
+pooled,day,500,1.0000,0.1000,200,0.9782,0.0115,1.1593,0.1595,0.0647,0.0001
+mondrian,day,500,1.0000,0.1000,200,0.8994,0.0174,0.9436,0.0567,0.0248,0.0565
+pooled,night,500,1.0000,0.1000,200,0.7134,0.0246,1.1396,0.1398,0.0517,0.0001
+mondrian,night,500,1.0000,0.1000,200,0.9027,0.0250,1.6140,0.6140,0.0749,0.0000
